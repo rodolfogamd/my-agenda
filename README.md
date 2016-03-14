@@ -50,8 +50,14 @@ This is a fairly simple project to get up and running.
 The procedure for starting up is as follows:
 
 1. Clone the project. (There’s only master branch.)
-2. Run the command `vagrant up` from the directory
-3. Open your browser to http://localhost:9834
+2. Modify parameters in config.yaml such as: USER, PASSWORD,
+PROJECT, DOMAIN_NAME, HOSTNAME and ip according your network connection.
+3. Run the command `vagrant up` from the directory
+
+For standalone configuration:
+4. Open your browser to http://localhost:8000
+For vagrant configuration:
+4. Open your browser to http://localhost:9834
 
 ## Run the application
 
