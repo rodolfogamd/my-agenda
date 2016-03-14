@@ -1,0 +1,10 @@
+Django==1.8.5
+django-filter==0.11.0
+djangorestframework==3.2.4
+MySQL-python==1.2.5
+South==0.8.1
+argparse==1.2.1
+wsgiref==0.1.2
+yolk==0.4.3
+Markdown==2.6.2
+Unipath==1.1
