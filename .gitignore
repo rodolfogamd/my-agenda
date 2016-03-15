@@ -2,7 +2,7 @@
 .vagrant/
 
 # Credentials file
-#config.yaml
+config.yaml
 
 # IDEs files Eclipse, PyCharm
 .buildpath
