@@ -23,7 +23,7 @@ class webserver::sources {
     servername          => "${domain_name}",
     port                => '80',
     ip                  => '*',
-    docroot             => '/vagrant/BFA_Agenda',
+    docroot             => '/vagrant/agenda',
     docroot_owner       => 'vagrant',
     docroot_group       => 'www-data',
     error_log           => true,
@@ -31,10 +31,10 @@ class webserver::sources {
     access_log          => true,
     access_log_file     => '/var/log/apache2/project-access.log',
     wsgi_daemon_process => 'wsgi',
-    wsgi_import_script  => '/vagrant/BFA_Agenda/wsgi.py',
+    wsgi_import_script  => '/vagrant/agenda/wsgi.py',
     wsgi_process_group  => 'wsgi',
     wsgi_script_aliases => {
-      '/' => '/vagrant/BFA_Agenda/wsgi.py'
+      '/' => '/vagrant/agenda/wsgi.py'
     },
     wsgi_chunked_request => 'On',
   }

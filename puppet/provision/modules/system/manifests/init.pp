@@ -14,6 +14,25 @@ class system::sources {
       'timeout'   => undef
     }
   }
+
+  apt::source { "ubuntu_trusty":
+        location => "http://archive.ubuntu.com/ubuntu/",
+        release  => "trusty",
+        repos    => "main restricted universe multiverse",
+    }
+
+    apt::source { "ubuntu_trusty-updates":
+        location => "http://archive.ubuntu.com/ubuntu/",
+        release  => "trusty-updates",
+        repos    => "main restricted universe multiverse",
+    }
+
+    apt::source { "ubuntu_trusty-security":
+        location => "http://archive.ubuntu.com/ubuntu/",
+        release  => "trusty-security",
+        repos    => "main restricted universe multiverse",
+    }
+  
 }
 
 class system::essential {
@@ -28,13 +47,6 @@ class system::essential {
 }
 
 class system::ppa {
-
-  file { '/etc/apt/sources.list.d/multiverse.list':
-    source => 'puppet:///modules/system/multiverse.list',
-    owner  => 'root',
-    group  => 'root',
-    notify => Exec['apt_update']
-  }
 
   apt::ppa { 'ppa:git-core/ppa': }
 
