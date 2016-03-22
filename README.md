@@ -62,11 +62,11 @@ For vagrant configuration:
 ## Run the application
 
 1. Modify the following line at manage.py:
-+ `os.environ.setdefault("DJANGO_SETTINGS_MODULE", "BFA_Agenda.settings")`
++ `os.environ.setdefault("DJANGO_SETTINGS_MODULE", "agenda.settings")`
 For local development:
-+ `os.environ.setdefault("DJANGO_SETTINGS_MODULE", "BFA_Agenda.settings.local")`
++ `os.environ.setdefault("DJANGO_SETTINGS_MODULE", "agenda.settings.local")`
 For production:
-+ `os.environ.setdefault("DJANGO_SETTINGS_MODULE", "BFA_Agenda.settings.production")`
++ `os.environ.setdefault("DJANGO_SETTINGS_MODULE", "agenda.settings.production")`
 
 For changing this manual change, we need to use virtualenvwrapper.
 
