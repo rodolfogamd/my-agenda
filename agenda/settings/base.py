@@ -64,9 +64,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'BFA_Agenda.urls'
+ROOT_URLCONF = 'agenda.urls'
 
-WSGI_APPLICATION = 'BFA_Agenda.wsgi.application'
+WSGI_APPLICATION = 'agenda.wsgi.application'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
