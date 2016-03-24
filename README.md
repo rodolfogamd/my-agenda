@@ -75,3 +75,9 @@ For changing this manual change, we need to use virtualenvwrapper.
 
 3. For running django server
 `python manage.py runserver 0.0.0.0:8000`
+
+## Heroku Deployment Supported
+
+Added the require files to deploy on Heroku:
++ `requirements.txt`
++ `Procfile`

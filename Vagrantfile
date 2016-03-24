@@ -65,4 +65,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         puppet.options = "--verbose --graph --debug"
     end
 
+    config.push.define "heroku" do |push|
+        push.app = "my-agenda"
+        push.remote = "heroku"
+    end
 end
