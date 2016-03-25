@@ -22,7 +22,7 @@ router.register(r'levels', LevelViewSet)
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     # url(r'^browser/', include(router.urls)),
+    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-	url(r'^', include(router.urls)),
+    url(r'^', include(router.urls)),
 ]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
