@@ -86,3 +86,6 @@ For changing this manual change, we need to use virtualenvwrapper.
 Added the require files to deploy on Heroku:
 + `requirements.txt`
 + `Procfile`
+
+On Heroku:
+```heroku config:set DJANGO_SETTINGS_MODULE=agenda.settings.production```
