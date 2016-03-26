@@ -1,11 +1,11 @@
 from django.db import models
 
-CLIENT_CHOICES = [('FIS', 'fis'), ('Iridium', 'iridium'), ('Lima3', 'lima3'), ('Clarabridge', 'Survey API')]
+from apps.companies.models import Company
 
 
 class Project(models.Model):
     name = models.CharField(max_length=200)
-    client = models.CharField(choices=CLIENT_CHOICES, default='fis', max_length=100)
+    client = models.ForeignKey(Company, related_name='companies', related_query_name='company')
     active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
