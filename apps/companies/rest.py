@@ -37,7 +37,7 @@ class CompanyFilter(FilterSet):
 
 
 # ViewSets define the view behavior.
-class SkillsViewSet(viewsets.ModelViewSet):
+class CompanyViewSet(viewsets.ModelViewSet):
     queryset = Company.objects.all()
     serializer_class = CompanySerializer
     pagination_class = StandardResultsSetPagination
