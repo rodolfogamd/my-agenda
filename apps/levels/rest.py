@@ -8,7 +8,7 @@ from models import Level
 class LevelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Level
-        fields = ('id', 'name', 'alias', 'active', 'created_at')
+        fields = ('id', 'name', 'alias', 'active')
 
     def __unicode__(self):
         return self.name

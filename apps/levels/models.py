@@ -8,8 +8,6 @@ class Level(models.Model):
     alias = models.CharField(max_length=200, default='', blank=True)
     skills = models.ManyToManyField(Skill, through='LevelSkill', related_name='levels')
     active = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
@@ -18,7 +16,7 @@ class Level(models.Model):
         return '%s' % self.name
 
     class Meta:
-        ordering = ('created_at',)
+        ordering = ('name',)
         app_label = 'levels'
         db_table = 'app_levels'
         verbose_name = 'Level'
