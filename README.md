@@ -95,3 +95,5 @@ Config mysal database:
 ```heroku config | grep CLEARDB_DATABASE_URL```
 Copy the message result:
 ```heroku config:set DATABASE_URL='mysql://xxxxxxxx:yyyyyy@zzzzzzzz/heroku_db?reconnect=true'```
+Create super user:
+```heroku run python manage.py createsuperuser```
