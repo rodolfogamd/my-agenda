@@ -89,3 +89,9 @@ Added the require files to deploy on Heroku:
 
 On Heroku:
 ```heroku config:set DJANGO_SETTINGS_MODULE=agenda.settings.production```
+
+Config mysal database:
+```heroku addons:create cleardb:ignite```
+```heroku config | grep CLEARDB_DATABASE_URL```
+Copy the message result:
+```heroku config:set DATABASE_URL='mysql://xxxxxxxx:yyyyyy@zzzzzzzz/heroku_db?reconnect=true'```

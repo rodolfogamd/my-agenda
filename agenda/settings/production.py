@@ -3,12 +3,19 @@ from .base import *
 
 DEBUG = False
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+import urlparse
+
+url = urlparse.urlparse(os.environ['DATABASE_URL'])
+
+DATABASES['default'] = DATABASES.get('default', {})
+DATABASES['default'].update({
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': url.path[1:],
+    'USER': url.username,
+    'PASSWORD': url.password,
+    'HOST': url.hostname,
+    'PORT': url.port,
+})
 
 TEMPLATES = [
     {
