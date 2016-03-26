@@ -1,20 +1,21 @@
 Introduction
 ===========
 
-Building an API with Vagrant, Puppet or standalone with Django.
+Building an REST API with Django using Vagrant and Puppet or standalone on Ubuntu 14.04.
 
 # Without vagrant
 
 1. Install mysql server
 2. Install python and pip
-3. Create a virtualenv
-4. Activate the virtualenv with the following command
-`source (virtualenv)/bin/activate`
-5. Run the command:
+3. Install virtualenv and virtualenvwrapper
+4. Create a virtualenv
+5. Activate the virtualenv with the following command
++ `source (virtualenv)/bin/activate`
+6. Run the command:
 `pip install -r puppet/provision/modules/language/files/local.txt`
-6. Verify all the packages with yolk:
+7. Verify all the packages with yolk:
 `yolk -l`
-7. Modify manage.py like 'Run the application' section
+8. Modify manage.py like 'Run the application' section
 
 # Using Vagrant
 
@@ -51,12 +52,12 @@ The procedure for starting up is as follows:
 
 1. Clone the project. (There’s only master branch.)
 2. Modify parameters in config.yaml such as:
-+ USER
-+ PASSWORD
-+ PROJECT
-+ DOMAIN_NAME
-+ HOSTNAME
-+ public_ip according your network connection.
+- USER
+- PASSWORD
+- PROJECT
+- DOMAIN_NAME
+- HOSTNAME
+- public_ip according your network connection.
 3. Run the command `vagrant up` from the directory
 
 For standalone configuration:
@@ -88,12 +89,14 @@ Added the require files to deploy on Heroku:
 + `Procfile`
 
 On Heroku:
-```heroku config:set DJANGO_SETTINGS_MODULE=agenda.settings.production```
+* `heroku config:set DJANGO_SETTINGS_MODULE=agenda.settings.production`
 
-Config mysal database:
-```heroku addons:create cleardb:ignite```
-```heroku config | grep CLEARDB_DATABASE_URL```
+Config mysql database:
+* `heroku addons:create cleardb:ignite`
+* `heroku config | grep CLEARDB_DATABASE_URL`
+
 Copy the message result:
-```heroku config:set DATABASE_URL='mysql://xxxxxxxx:yyyyyy@zzzzzzzz/heroku_db?reconnect=true'```
+* `heroku config:set DATABASE_URL='mysql://xxxxxxxx:yyyyyy@zzzzzzzz/heroku_db?reconnect=true'`
+
 Create super user:
-```heroku run python manage.py createsuperuser```
+* `heroku run python manage.py createsuperuser`
