@@ -1,4 +1,5 @@
 from django.db import models
+
 from apps.skills.models import Skill
 from apps.contacts.models import Contact
 
