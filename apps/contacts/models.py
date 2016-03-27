@@ -3,8 +3,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-from apps.projects.models import Project
-
 
 class Contact(models.Model):
     first_name = models.CharField(_('first name'), max_length=250, blank=True)
@@ -14,7 +12,6 @@ class Contact(models.Model):
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
     user = models.ForeignKey(User, blank=True, null=True)
     location = models.CharField(max_length=100, blank=True, default='')
-    project = models.ForeignKey(Project, related_name='project', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
