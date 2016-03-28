@@ -36,6 +36,7 @@ DEFAULT_APPS = (
 
 THIRD_PARTY_APPS = (
     'rest_framework',
+    'corsheaders',
 )
 
 LOCAL_APPS = (
@@ -57,6 +58,7 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -89,6 +91,35 @@ STATICFILES_DIRS = (
     PROJECT_DIR.child('assets'),
 )
 
-#Media files
+# Media files
 MEDIA_ROOT = PROJECT_DIR.child('media')
 MEDIA_URL = '/media/'
+
+# CORS Configuration
+CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ORIGIN_WHITELIST = ()
+#CORS_ORIGIN_REGEX_WHITELIST = ()
+#CORS_URLS_REGEX = '^.*$'
+# CORS_ALLOW_METHODS = (
+#     'GET',
+#     'POST',
+#     'PUT',
+#     'PATCH',
+#     'DELETE',
+#     'OPTIONS'
+# )
+# CORS_ALLOW_HEADERS = (
+#     'x-requested-with',
+#     'content-type',
+#     'accept',
+#     'origin',
+#     'authorization',
+#     'x-csrftoken'
+# )
+CORS_EXPOSE_HEADERS = (
+    'Access-Control-Allow-Origin',
+    'Access-Control-Allow-Headers'
+)
+# CORS_PREFLIGHT_MAX_AGE = 86400
+# CORS_ALLOW_CREDENTIALS = False
+# CORS_REPLACE_HTTPS_REFERER = False
