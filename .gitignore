@@ -15,7 +15,7 @@ nbproject/
 *~
 
 # Database
-db.sqlite3
+*.sqlite3
 
 # Operating Systems
 .DS_Store
