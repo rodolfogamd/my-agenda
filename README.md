@@ -17,6 +17,17 @@ Building an REST API with Django using Vagrant and Puppet or standalone on Ubunt
 `yolk -l`
 8. Modify manage.py like 'Run the application' section
 
+# Without vagrant and without mysql
+
++ You don't need install mysql server, so using steps from above section, just run the command:
+`pip install -r puppet/provision/modules/language/files/local_sqlite3.txt`
+
++ You can also use pip freeze instead yolk to verify all packages:
+`pip freeze`
+
++ You don't need to modify manage.py like 'Run the application' section, you can use just virtualenvwrapper postactivate:
+`export DJANGO_SETTINGS_MODULE=agenda.settings.local_sqlite3`
+
 # Using Vagrant
 
 ## Prerequisites
