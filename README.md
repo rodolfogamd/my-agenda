@@ -114,3 +114,6 @@ Copy the message result:
 
 Create super user:
 * `heroku run python manage.py createsuperuser`
+
+Restart web server
+* `heroku ps:scale web=0 && heroku ps:scale web=1`
