@@ -10,6 +10,9 @@ from apps.skills.rest import SkillsViewSet
 from apps.levels.rest import LevelViewSet
 from apps.companies.rest import CompanyViewSet
 from apps.teams.rest import TeamsViewSet
+from apps.groups.rest import GroupsViewSet
+from apps.mycontacts.views import MyContactsViewSet
+from apps.mygroups.views import MyGroupsViewSet
 
 router = routers.DefaultRouter()
 router.register(r'contacts', ContactsViewSet)
@@ -18,6 +21,9 @@ router.register(r'projects', ProjectsViewSet)
 router.register(r'levels', LevelViewSet)
 router.register(r'companies', CompanyViewSet)
 router.register(r'teams', TeamsViewSet)
+router.register(r'groups', GroupsViewSet)
+router.register(r'mycontacts', MyContactsViewSet)
+router.register(r'mygroups', MyGroupsViewSet)
 # router.register(r'users', views.UserViewSet)
 # router.register(r'groups', views.GroupViewSet)
 

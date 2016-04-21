@@ -8,8 +8,8 @@ from apps.contacts.models import Contact
 
 @python_2_unicode_compatible
 class Level(models.Model):
-    name = models.CharField(max_length=200)
-    alias = models.CharField(max_length=200, default='', blank=True)
+    name = models.CharField(max_length=250)
+    alias = models.CharField(max_length=250, default='', blank=True)
     skills = models.ManyToManyField(Skill, through='LevelSkill', related_name='levels')
     active = models.BooleanField(default=True)
 
