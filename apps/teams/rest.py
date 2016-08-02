@@ -10,7 +10,7 @@ class TeamSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Team
-        fields = ('id', 'project', 'contact', 'active', 'created')
+        fields = ('id', 'project', 'owner', 'active', 'created')
 
     def __unicode__(self):
         return "%s" % self.name
@@ -19,7 +19,7 @@ class TeamSerializer(serializers.ModelSerializer):
 class TeamsFilter(FilterSet):
     class Meta:
         model = Team
-        fields = ('id', 'project', 'contact', 'active')
+        fields = ('id', 'project', 'owner', 'active')
 
 
 # ViewSets define the view behavior.

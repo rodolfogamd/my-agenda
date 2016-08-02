@@ -7,6 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('clients', '0001_initial'),
     ]
 
     operations = [
@@ -15,13 +16,14 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=200)),
-                ('client', models.CharField(default=b'fis', max_length=100, choices=[(b'FIS', b'fis'), (b'Iridium', b'iridium'), (b'Lima3', b'lima3'), (b'Clarabridge', b'Survey API')])),
                 ('active', models.BooleanField(default=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+                ('modified_at', models.DateTimeField(auto_now=True)),
+                ('client', models.ForeignKey(related_query_name='project', related_name='projects', to='clients.Client')),
             ],
             options={
-                'ordering': ('created',),
-                'db_table': 'app_projects',
+                'ordering': ('created_at',),
+                'db_table': 'app_project',
                 'verbose_name': 'Project',
                 'verbose_name_plural': 'Projects',
             },

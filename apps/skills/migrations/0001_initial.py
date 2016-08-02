@@ -15,13 +15,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=200)),
-                ('level', models.CharField(default=b'basic', max_length=100, choices=[(b'Basic', b'basic'), (b'Intermediate', b'intermediate'), (b'Advance', b'advance')])),
+                ('alias', models.CharField(default='', max_length=200, blank=True)),
                 ('active', models.BooleanField(default=True)),
-                ('created', models.DateTimeField(auto_now_add=True)),
             ],
             options={
-                'ordering': ('created',),
-                'db_table': 'app_skills',
+                'ordering': ('name',),
+                'db_table': 'app_skill',
                 'verbose_name': 'Skill',
                 'verbose_name_plural': 'Skills',
             },

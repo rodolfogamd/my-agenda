@@ -40,15 +40,15 @@ THIRD_PARTY_APPS = (
 )
 
 LOCAL_APPS = (
-    'apps.companies',
+    'apps.clients',
     'apps.skills',
     'apps.projects',
-    'apps.contacts',
+    'apps.users',
     'apps.levels',
     'apps.teams',
     'apps.groups',
-    'apps.mycontacts',
-    'apps.mygroups',
+    #'apps.mycontacts',
+    #'apps.mygroups',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS

@@ -3,17 +3,17 @@ from rest_framework import routers, viewsets, filters
 
 from common.common import StandardResultsSetPagination
 from serializers import GroupsSerializer
-from models import Groups
+from models import Group
 
 
 class GroupsFilter(django_filters.FilterSet):
     class Meta:
-        model = Groups
-        fields = ('id', 'name', 'active')
+        model = Group
+        fields = ('id', 'name', 'admin', 'active')
 
 
 class GroupsViewSet(viewsets.ModelViewSet):
-    queryset = Groups.objects.all()
+    queryset = Group.objects.all()
     serializer_class = GroupsSerializer
     pagination_class = StandardResultsSetPagination
     filter_backends = (filters.DjangoFilterBackend,)

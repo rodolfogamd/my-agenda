@@ -1,24 +1,24 @@
 from rest_framework import serializers
 
-from models import Company
+from models import Client
 
 
-class CompanySerializer(serializers.ModelSerializer):
+class ClientSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Company
+        model = Client
         fields = ('id', 'name', 'alias', 'active')
 
     def __unicode__(self):
         return self.name
 
     def create(self, validated_data):
-        company = Company(
+        client = Client(
             name=validated_data['name'],
             alias=validated_data['name'].lower(),
             active=validated_data['active']
         )
-        company.save()
-        return company
+        client.save()
+        return client
 
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)

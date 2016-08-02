@@ -3,25 +3,23 @@ import django_filters
 from rest_framework import routers, viewsets, filters
 
 from common.common import StandardResultsSetPagination
-from serializers import ContactSerializer
-from apps.contacts.models import Contact
-from apps.teams.models import Team
-from apps.levels.models import LevelSkill
+from serializers import UserSerializer
+from apps.users.models import User
 from django.db.models.query import QuerySet
 
 
-class ContactsFilter(django_filters.FilterSet):
+class UsersFilter(django_filters.FilterSet):
     class Meta:
-        model = Contact
+        model = User
         fields = ('id', 'first_name', 'last_name', 'date_joined', 'location')
 
 
-class ContactsViewSet(viewsets.ModelViewSet):
-    queryset = Contact.objects.all()
-    serializer_class = ContactSerializer
+class UsersViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
     pagination_class = StandardResultsSetPagination
     filter_backends = (filters.DjangoFilterBackend,)
-    filter_class = ContactsFilter
+    filter_class = UsersFilter
 
     def get_queryset(self):
         queryset = self.queryset
@@ -33,11 +31,9 @@ class ContactsViewSet(viewsets.ModelViewSet):
         skill_name = self.request.query_params.get('skill_name', None)
 
         if project_name is not None:
-            team_list = Team.objects.filter(project__name__icontains=project_name).values('contact_id')
-            queryset = queryset.filter(pk__in=team_list)
+            queryset = queryset.filter(group__team__project__name__icontains=project_name)
 
         if skill_name is not None:
-            level_skill_list = LevelSkill.objects.filter(skill__name__icontains=skill_name).values('contact_id')
-            queryset = queryset.filter(pk__in=level_skill_list)
+            queryset = queryset.filter(skills__name__icontains=skill_name)
 
         return queryset

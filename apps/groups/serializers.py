@@ -1,13 +1,13 @@
 from rest_framework import serializers
 
-from models import Groups
+from models import Group
 
 
 class GroupsSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Groups
-        fields = ('id', 'name', 'active')
+        model = Group
+        fields = ('id', 'name', 'admin', 'active')
 
     def __unicode__(self):
         return self.name

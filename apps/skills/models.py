@@ -15,6 +15,6 @@ class Skill(models.Model):
     class Meta:
         ordering = ('name',)
         app_label = 'skills'
-        db_table = 'app_skills'
+        db_table = 'app_skill'
         verbose_name = 'Skill'
         verbose_name_plural = 'Skills'

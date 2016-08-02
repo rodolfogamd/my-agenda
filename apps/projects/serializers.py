@@ -1,12 +1,12 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
-from apps.companies.serializers import CompanySerializer
+from apps.clients.serializers import ClientSerializer
 from models import Project
 
 
 class ProjectSerializer(serializers.ModelSerializer):
-    # client = CompanySerializer(read_only=True)
+    # client = ClientSerializer(read_only=True)
 
     class Meta:
         model = Project

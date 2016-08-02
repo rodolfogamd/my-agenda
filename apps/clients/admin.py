@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from apps.companies.models import Company
+from apps.clients.models import Client
 
 
-class CompanyAdmin(admin.ModelAdmin):
-    model = Company
+class ClientAdmin(admin.ModelAdmin):
+    model = Client
     list_display = ('id', 'name', 'active',)
     search_fields = ['id', 'name', 'active']
 
@@ -13,4 +13,4 @@ class CompanyAdmin(admin.ModelAdmin):
         obj.save()
 
 
-admin.site.register(Company, CompanyAdmin)
+admin.site.register(Client, ClientAdmin)
